@@ -496,12 +496,12 @@
 	}
 }
 
-\renewcommand{\abstract}[1]{\if@draftmode\if@notitlepage\else
+\renewcommand{\abstract}[2]{\if@draftmode\if@notitlepage\else
  #1 \newpage \fi
 \else
 	%\titlepage
 	\newpage
-	\addcontentsline{toc}{chapter}{ABSTRACT (ENGLISH)}
+	\addcontentsline{toc}{chapter}{ABSTRACT}
 	\@abstractbox
 %	\linespacing{1.0}
       	%\null\vfil
@@ -535,6 +535,10 @@
 %	\@beginparpenalty\@lowpenalty
 %        \@endparpenalty\@M
 	\par #1
+	\begin{center}IMPLICATION OF THE THESIS\end{center}
+	\par #2
+	\vspace{-0.8em}
+	
 	\vspace{0.5em}
         \begin{tabbing}
 	KEY WORDS~: \= \MakeTextUppercase\@keywords \\ 
