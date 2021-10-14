@@ -9,6 +9,9 @@
 % adapted from: /usr/share/texmf/tex/latex/base/report.cls and Thai Latex
 % also /usr/share/texmf/tex/latex/natbib/natbib.sty
 
+% author  :  Angkana Huang (2017)
+% author  :  Thanapon Noraset (2021)
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{muthesis09}[2010/04/24 v0.91 Mahidol University thesis class]
 \LoadClass[12pt,a4paper]{report}
