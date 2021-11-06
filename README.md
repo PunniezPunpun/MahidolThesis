@@ -6,7 +6,7 @@ See the `MahidolThesis.pdf` as an example.
 
 ## Status:
 
-*NOT* verified.
+Verified by MUICT staff.
 
 ## Files:
 
