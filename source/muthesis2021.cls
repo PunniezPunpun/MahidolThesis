@@ -13,7 +13,7 @@
 % author  :  Thanapon Noraset (2021)
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{muthesis21}[2021/10/14 v0.142 Mahidol University thesis class]
+\ProvidesClass{muthesis2021}[2021/10/14 v0.142 Mahidol University thesis class]
 \LoadClass[12pt,a4paper]{report}
 \RequirePackage{times}
 \RequirePackage{ifthen}
