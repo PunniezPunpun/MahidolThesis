@@ -976,9 +976,9 @@
 %
 % Add field names after titles of TOC,LOF,LOT
 %
-\addtocontents{toc}{\protect\contentsline {chapter}{}{\bfseries \hfill Page}}
-\addtocontents{lot}{\protect\contentsline {chapter}{Table}{\bfseries \hfill Page}}
-\addtocontents{lof}{\protect\contentsline {chapter}{Figure}{\bfseries \hfill Page}}
+\addtocontents{toc}{ \protect \contentsline{chapter}{}{\textbf{Page}}{}}
+\addtocontents{lot}{ \protect \contentsline{chapter}{Table}{\textbf{Page}}{}}
+\addtocontents{lof}{ \protect \contentsline{chapter}{Figure}{\textbf{Page}}{}}
 \renewcommand*\l@figure{\@dottedtocline{1}{0em}{2.3em}}  % define indent = 0
 \renewcommand*\l@table{\@dottedtocline{1}{0em}{2.3em}}  % define indent = 0
 %\renewcommand*\l@figure{\@dottedtocline{1}{0em}{2.3em}}  % define indent = 0
