@@ -15,8 +15,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{muthesis2021}[2021/10/14 v0.142 Mahidol University thesis class]
 \LoadClass[12pt,a4paper]{report}
+
 \RequirePackage{times}
 \RequirePackage{ifthen}
+\usepackage[bookmarks]{hyperref}
 \newboolean{@natbibmode}\setboolean{@natbibmode}{false}
 \DeclareOption{natbib}{%
   \setboolean{@natbibmode}{true}%
@@ -376,6 +378,7 @@
 	\global\let\and\relax
 }
 
+
 \def\@maketitle{
 \if@draftmode\else\setboolean{@notitlepage}{false}\fi
 \if@notitlepage\else
@@ -556,50 +559,52 @@
 }
 %{\par\vfil\null\endtitlepage}
 
-\newcommand{\thaiabstract}[1]{\if@draftmode\else
-	%\titlepage
-	%\linespacing{1.3}
-	\newpage
-	\addcontentsline{toc}{chapter}{ABSTRACT (THAI)}
-	\@abstractbox
-      	%\null\vfil
-	%\parindent = 8 ex				% if set, it has global effect to the rest content.
-        \noindent\sloppy
-        \@thaititle\ (\@TITLE). \\ \\
-	\ifthenelse{\equal{\@thaicandidate}{}}
-                   {\MakeTextUppercase\@candidate}
-                   {\@thaicandidate}~~\@candidatenumber\\ \\
-	\ifthenelse{\equal{\@degree}{Ph.D.}}{{\thai  ปร.ด}}{{\thai วท.ม.}} %
-	(\@thaisubject)
-        \ifthenelse{\equal{\@degree}{M.Sc.}}{%
-	\ifthenelse{\equal{\@thaimajor}{}}%
-	{}{{\thai สาขาวิชาเอก}\@thaimajor\ }}{} \\
-	\par\fussy\noindent
-        \sloppy
-	{\thai คณะกรรมการควบคุมวิทยานิพนธ์}
-	: \ifthenelse{\equal{\@thaimajoradvisor}{}}
-        {\MakeUppercase\@majoradvisor}{\@thaimajoradvisor},
-        \@majoradvisorletters\ (\MakeUppercase\@majoradvisorsubject),
-	\ifthenelse{\equal{\@thaicoadvisor}{}}{\MakeUppercase\@coadvisor}
-	{\@thaicoadvisor}, \@coadvisorletters\
-        (\MakeUppercase\@coadvisorsubject)%
-	\ifthenelse{\equal{\@coadvisorII}{}}{ }{,
-        \ifthenelse{\equal{\@thaicoadvisorII}{}}{%
-	\MakeUppercase\@coadvisorII}{\@thaicoadvisorII}, \@coadvisorIIletters\
-        (\MakeUppercase\@coadvisorIIsubject)} \\
-	%\tolerance=1000
-	%\spaceskip 0.333em plus 1em minus 0.222em
-	%\@beginparpenalty\@lowpenalty
-        %\@endparpenalty\@M
-	\begin{center}{\thai บทค่ัดย่อ}\end{center}
-	\par
-	\linespacing{1.5}
-	%\sloppy #1 \par
-  {\bf THAI NOT SUPPORTED IN THIS LATEX CLASS.  USE MS WORD TO CREATE THAI ABSTRACT. \\}
-        \fussy\mbox{}\newline
-	\noindent\pageref{biography}~{\thai หน้า} ISBN~\@isbn
-\fi
-} % the \par is necessary to get last paragraph to have good spacing
+
+
+%\newcommand{\thaiabstract}[1]{\if@draftmode\else
+%	%\titlepage
+%	%\linespacing{1.3}
+%	\newpage
+%	\addcontentsline{toc}{chapter}{ABSTRACT (THAI)}
+%	\@abstractbox
+%      	%\null\vfil
+%	%\parindent = 8 ex				% if set, it has global effect to the rest content.
+%        \noindent\sloppy
+%        \@thaititle\ (\@TITLE). \\ \\
+%	\ifthenelse{\equal{\@thaicandidate}{}}
+%                   {\MakeTextUppercase\@candidate}
+%                   {\@thaicandidate}~~\@candidatenumber\\ \\
+%	\ifthenelse{\equal{\@degree}{Ph.D.}}{{\Th  ปร.ด}}{{\Th วท.ม.}} %
+%	(\@thaisubject)
+%        \ifthenelse{\equal{\@degree}{M.Sc.}}{%
+%	\ifthenelse{\equal{\@thaimajor}{}}%
+%	{}{{\Th สาขาวิชาเอก}\@thaimajor\ }}{} \\
+%	\par\fussy\noindent
+%        \sloppy
+%	{\Th คณะกรรมการควบคุมวิทยานิพนธ์}
+%	: \ifthenelse{\equal{\@thaimajoradvisor}{}}
+%        {\MakeUppercase\@majoradvisor}{\@thaimajoradvisor},
+%        \@majoradvisorletters\ (\MakeUppercase\@majoradvisorsubject),
+%	\ifthenelse{\equal{\@thaicoadvisor}{}}{\MakeUppercase\@coadvisor}
+%	{\@thaicoadvisor}, \@coadvisorletters\
+%        (\MakeUppercase\@coadvisorsubject)%
+%	\ifthenelse{\equal{\@coadvisorII}{}}{ }{,
+%        \ifthenelse{\equal{\@thaicoadvisorII}{}}{%
+%	\MakeUppercase\@coadvisorII}{\@thaicoadvisorII}, \@coadvisorIIletters\
+%        (\MakeUppercase\@coadvisorIIsubject)} \\
+%	%\tolerance=1000
+%	%\spaceskip 0.333em plus 1em minus 0.222em
+%	%\@beginparpenalty\@lowpenalty
+%        %\@endparpenalty\@M
+%	\begin{center}{\Th บทคัดย่อ}\end{center}
+%	\par
+%	\linespacing{1.5}
+%	%\sloppy #1 \par
+%  {\bf THAI NOT SUPPORTED IN THIS LATEX CLASS.  USE MS WORD TO CREATE THAI ABSTRACT. \\}
+%        \fussy\mbox{}\newline
+%	\noindent\pageref{biography}~{\Th หน้า} ISBN~\@isbn
+%\fi
+%} % the \par is necessary to get last paragraph to have good spacing
 
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
 %	\thispagestyle{myheadings}
@@ -608,6 +613,8 @@
 	\@afterindentfalse
 	\secdef\@chapter\@schapter
 }
+
+
 % used to make optional argument the heading only (not the toc entry)
 \renewcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
@@ -623,26 +630,28 @@
       #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
     \endgroup
   \fi}
-\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
-                         \refstepcounter{chapter}%
-                         \typeout{\@chapapp\space\thechapter.}%
-                         \ifthenelse{\equal{\@appname}{}}%
-                            {\addcontentsline{toc}{chapter}%
-                                 {\protect\numberline{\MakeTextUppercase{\@chapapp}\ \@Roman\thechapter}%
-                                          \MakeTextUppercase{#1}}% CHAPTER I .....                                 
-                            }%
-                            {\addcontentsline{toc}{chapter}%
-                                 {\hspace{1.5em} \protect\numberline{\MakeTextUppercase{\@chapapp}\ \thechapter}%
-                                          \MakeTextUppercase{#1}}% APPENDIX A ....
-                            }
-%                         \addcontentsline{toc}{chapter}%
-%                                 {\protect\numberline{\MakeTextUppercase{\@chapapp}\ \@Roman\thechapter}%
-%                                 {\protect\numberline{\MakeTextUppercase{\@chapapp}\ \thechapter}%
-%                                          \MakeTextUppercase{#1}}% CHAPTER I .....
-                    \else
-                      \addcontentsline{toc}{chapter}{#1}% 
-                    \fi
-                    \chaptermark{#1}%
+
+% \@chapter ตัวปัญหาที่ทำให้ใช้ hyperref package ไม่ได้
+
+\def\@chapter[#1]#2{%
+	\ifnum \c@secnumdepth >\m@ne
+	\refstepcounter{chapter}%
+	\typeout{\@chapapp\space\thechapter.}%
+	\ifthenelse{\equal{\@appname}{}}{%
+		\addcontentsline{toc}{chapter}{%
+			\protect\numberline{\MakeTextUppercase{\@chapapp}\ \@Roman\thechapter}%
+			\texorpdfstring{\MakeTextUppercase{#1}}{#1}%
+		}% CHAPTER I .....
+	}{%
+		\addcontentsline{toc}{chapter}{%
+			\hspace{1.5em} \protect\numberline{\MakeTextUppercase{\@chapapp}\ \thechapter}%
+			\texorpdfstring{\MakeTextUppercase{#1}}{#1}%
+		}% APPENDIX A ....
+	}
+	\else
+	\addcontentsline{toc}{chapter}{#1}% 
+	\fi
+	\chaptermark{\texorpdfstring{#1}{Title for PDF bookmarks}}%
                     %\addtocontents{lof}{\protect\addvspace{10\p@}}%
                     %\addtocontents{lot}{\protect\addvspace{10\p@}}%
                     \if@twocolumn
@@ -650,7 +659,9 @@
                     \else
                       \@makechapterhead{#2}%
                       \@afterheading
-                    \fi}
+                    \fi
+                }            
+                
 \def\@makechapterhead#1{
 	\ifthenelse{\equal{\thechapter }{1}}{\renewcommand{\@althead}{}
 		\pagestyle{headings}
@@ -694,10 +705,10 @@
 
 \renewcommand\section{%
 	\@startsection {section}{1}{\z@}%
-	%{-4.7ex \@plus -1ex \@minus -.2ex}% space above heading
+%	{-4.7ex \@plus -1ex \@minus -.2ex}% space above heading
     {-8.5ex \@plus -1ex \@minus -.2ex}% space above heading
 	%{0.1ex \@plus.1ex}% space below heading
-    {0.1ex \@plus4.7ex}% space below heading
+    {1ex \@plus4.7ex}% space below heading
 	{\normalfont\large\bfseries}%
 }
 % Subsection headings
@@ -798,25 +809,38 @@
 \fi
 }
 
-\renewcommand\listoffigures{
-\if@draftmode\else
-	\if@twocolumn
-	\@restonecoltrue\onecolumn
-	\else
-	\@restonecolfalse
-	\fi
-	\chapter*{\listfigurename}
-\renewcommand{\@althead}{\hspace{0.3\textwidth}LIST OF FIGURES~(cont.)\hfil}
-	\pagestyle{figurecontinued}
-       	\thispagestyle{myheadings}
-       	\markright{\footnotesize\hfil\thepage}
-	%\linespacing{1.3}
-	\addcontentsline{toc}{chapter}{\MakeTextUppercase\listfigurename}
-	\@starttoc{lof} % must go after addcontentsline
-	\if@restonecol\twocolumn\fi
-\fi
-}
 
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand\listoffigures{
+	\if@draftmode\else
+		\if@twocolumn
+		\@restonecoltrue\onecolumn
+		\else
+		\@restonecolfalse
+		\fi
+		\chapter*{\listfigurename}
+	\renewcommand{\@althead}{\hspace{0.3\textwidth}LIST OF FIGURES~(cont.)\hfil}
+		\pagestyle{figurecontinued}
+	       	\thispagestyle{myheadings}
+	       	\markright{\footnotesize\hfil\thepage}
+	%	%\linespacing{1.3}
+		\addcontentsline{toc}{chapter}{\listfigurename}
+		\@starttoc{lof} % must go after addcontentsline
+		\if@restonecol\twocolumn\fi
+	\fi
+	}
+
+%\newcommand{\abbrlist}{%
+%	\singlespacing
+%	\chapter*{\uppercase{LIST OF ABBREVIATIONS}}
+%}
+%
+%\newcommand{\symlist}{%
+%	\singlespacing
+%	% \prelim@contents{List of Symbols}
+%	\chapter*{LIST OF SYMBOLS}
+%}
+\renewcommand{\listtablename }{LIST OF TABLES}
 \renewcommand\listoftables{
 \if@draftmode\else
 	\if@twocolumn
@@ -830,7 +854,7 @@
        	\thispagestyle{myheadings}
        	\markright{\footnotesize\hfil\thepage}
 	%\linespacing{1.3}
-	\addcontentsline{toc}{chapter}{\MakeTextUppercase\listtablename}
+	\addcontentsline{toc}{chapter}{\listtablename}
 	\@starttoc{lot}%
 	\if@restonecol\twocolumn\fi
 \fi
@@ -862,44 +886,44 @@
 
 \renewenvironment{thebibliography}[1]{
 	\chapter*{\bibname}
-  	\markright{\bibname}
-    \renewcommand{\@appname}{}
-	\addcontentsline{toc}{chapter}{\MakeUppercase\bibname}
-\ifthenelse{\boolean{@natbibmode}}{%
-	%\linespacing{1.3}
-  \list{\@biblabel{\arabic{NAT@ctr}}}{\@bibsetup{#1}%
-    \setcounter{NAT@ctr}{0}}%
-    \ifNAT@openbib
-      \renewcommand\newblock{\par}
-    \else
-      \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
-    \fi
-    \sloppy\clubpenalty4000\widowpenalty4000
-    \sfcode`\.=1000\relax
-    \let\citeN\cite \let\shortcite\cite
-    \let\citeasnoun\cite}{\list{\@biblabel{\@arabic\c@enumiv}}%
-        {\settowidth\labelwidth{\@biblabel{#1}}%
-       		%\leftmargin\labelwidth%
-       		\leftmargin 2cm
-       		\addtolength{\itemindent}{\labelwidth}
-       		\addtolength{\itemindent}{-2cm}
-            	\advance\leftmargin\labelsep%
-            	\@openbib@code%
-            	\usecounter{enumiv}%
-            	\let\p@enumiv\@empty
-            	\renewcommand\theenumiv{\@arabic\c@enumiv}}%
-	\sloppy
-	\clubpenalty4000
-	\@clubpenalty \clubpenalty
-	\widowpenalty4000%
-	\sfcode`\.\@m
+	\addcontentsline{toc}{chapter}{\MakeUppercase{\bibname}}
+	\markright{\bibname}
+	\renewcommand{\@appname}{}
+	\ifthenelse{\boolean{@natbibmode}}{%
+		%\linespacing{1.3}
+		\list{\@biblabel{\arabic{NAT@ctr}}}{\@bibsetup{#1}%
+			\setcounter{NAT@ctr}{0}}%
+		\ifNAT@openbib
+		\renewcommand\newblock{\par}
+		\else
+		\renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+		\fi
+		\sloppy\clubpenalty4000\widowpenalty4000
+		\sfcode`\.=1000\relax
+		\let\citeN\cite \let\shortcite\cite
+		\let\citeasnoun\cite}{\list{\@biblabel{\@arabic\c@enumiv}}%
+		{\settowidth\labelwidth{\@biblabel{#1}}%
+			%\leftmargin\labelwidth%
+			\leftmargin 2cm
+			\addtolength{\itemindent}{\labelwidth}
+			\addtolength{\itemindent}{-2cm}
+			\advance\leftmargin\labelsep%
+			\@openbib@code%
+			\usecounter{enumiv}%
+			\let\p@enumiv\@empty
+			\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+		\sloppy
+		\clubpenalty4000
+		\@clubpenalty \clubpenalty
+		\widowpenalty4000%
+		\sfcode`\.\@m
 }}{\ifthenelse{\boolean{@natbibmode}}{%
-\def\@noitemerr{%
-  \PackageWarning{natbib}
-     {Empty `thebibliography' environment}}%
-  \endlist\vskip-\lastskip}{\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}}
+		\def\@noitemerr{%
+			\PackageWarning{natbib}
+			{Empty `thebibliography' environment}}%
+		\endlist\vskip-\lastskip}{\def\@noitemerr
+		{\@latex@warning{Empty `thebibliography' environment}}%
+		\endlist}}
 
 \newcommand{\biography}{
 \if@draftmode\else
