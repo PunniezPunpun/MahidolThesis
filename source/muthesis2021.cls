@@ -11,6 +11,7 @@
 
 % author  :  Angkana Huang (2017)
 % author  :  Thanapon Noraset (2021)
+% author  :  Phaphontee Yamchote (2023)
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{muthesis2021}[2021/10/14 v0.142 Mahidol University thesis class]
