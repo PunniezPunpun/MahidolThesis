@@ -19,7 +19,7 @@
 
 \RequirePackage{times}
 \RequirePackage{ifthen}
-\usepackage[bookmarks]{hyperref}
+\usepackage[hidelinks,bookmarks]{hyperref}
 \newboolean{@natbibmode}\setboolean{@natbibmode}{false}
 \DeclareOption{natbib}{%
   \setboolean{@natbibmode}{true}%
@@ -45,7 +45,7 @@
 \setlength{\refbaselineskip}{\baselineskip}
 \newcommand{\linespacing}[1]{\baselineskip=#1\refbaselineskip}   %%% some recommend to set \baselinestretch instead
 \newlength{\@topskipsave}
-\renewcommand{\@tocrmarg}{2.55em plus1fil}  % No hyphenation and ragged right for chapter in Table of Contents 
+\renewcommand{\@tocrmarg}{2.55em plus1fil}  % No hyphenation and ragged right for chapter in Table of Contents
 
 %
 % renew enumerate environment
@@ -58,7 +58,7 @@
 \parskip=0em
 %\itemsep=0cm
 }
-\renewenvironment{enumerate}{\old@enumerate\formatEnumerate}{\old@endenumerate} 
+\renewenvironment{enumerate}{\old@enumerate\formatEnumerate}{\old@endenumerate}
 
 %
 % renew itemize environment
@@ -71,7 +71,7 @@
 \parskip=0em
 \itemsep=0cm
 }
-\renewenvironment{itemize}{\old@itemize\formatEnumerate}{\old@enditemize} 
+\renewenvironment{itemize}{\old@itemize\formatEnumerate}{\old@enditemize}
 
 
 % following taken from textcase.sty with extra `%' added to prevent
@@ -121,7 +121,7 @@
 \def\tfontname{dbtt}
 \def\tfontsize{\spsizenormal pt}
 \def\huispace{ }
-\def\settfont{\font\utfont = \tfontname\huispace  at \tfontsize} 
+\def\settfont{\font\utfont = \tfontname\huispace  at \tfontsize}
 \settfont % initialize thai font and size
 
 \renewcommand\bibname{References}
@@ -334,11 +334,11 @@
 \newlength{\@halftextwidth}
 \@halftextwidth=0.53\textwidth
 %\def\@thesisentitled{\vspace*{-15mm}Thesis \\ entitled \\ \vskip 1em
-%	\large \bfseries \@TITLE \\ 
+%	\large \bfseries \@TITLE \\
 %	\normalsize\rm
 %}
 \def\@thesisentitled{Thesis \\ entitled \\ %\vskip 0.5em
-	\large \bfseries \@TITLE \\ 
+	\large \bfseries \@TITLE \\
 	\normalsize\rm
 }
 \author{\@candidate}
@@ -384,7 +384,7 @@
 \if@draftmode\else\setboolean{@notitlepage}{false}\fi
 \if@notitlepage\else
 	\newpage
-	\thispagestyle{empty}	
+	\thispagestyle{empty}
 	\begin{center}
 	\large \bfseries \@TITLE \par
   	\null
@@ -398,7 +398,7 @@
         \MakeUppercase\@author
       	\end{tabular}\par}
     	\vfill
-	{\large % US spelling is FULFILLMENT 
+	{\large % US spelling is FULFILLMENT
     	A THESIS SUBMITTED IN PARTIAL FULFILLMENT \\
 	OF THE REQUIREMENTS FOR THE DEGREE OF \\
 	\MakeUppercase\@fulldegree \mbox{ }(\MakeUppercase\@subject) \\
@@ -407,22 +407,22 @@
 	\@submissionyear \\ \mbox{}\\
 	%\number\year \\
     \ifthenelse{\equal{\@isbn}{}}{\mbox{} \\}{ISBN~\@isbn \\}
-	COPYRIGHT OF MAHIDOL UNIVERSITY} 
+	COPYRIGHT OF MAHIDOL UNIVERSITY}
   	\end{center}
   	%\par
   	%\vskip 1.5em   % vertical space at the bottom of the first page
 	\newpage  % THESIS ADVISORS
 	\setcounter{page}{1}
-	\thispagestyle{empty}	
+	\thispagestyle{empty}
 	\begin{center}
 	\@thesisentitled  \vfill
-	\begin{tabbing} 
+	\begin{tabbing}
 	\hspace{\@halftextwidth}\=\@sbx{\@candidatetitle \@candidate \\
 	Candidate} \\ \\ \\ \ifthenelse{\equal{\@coadvisorIII}{}}{ \\ }{}
 	\ifthenelse{\equal{\@coadvisorII}{}}{ \\ }{}
 	\>\@sbx{\@majoradvisortitle \@majoradvisor, \\
         \@majoradvisorletters~(\@majoradvisorsubject) \\
-	Major advisor} \\ \\ \\ \ifthenelse{\equal{\@coadvisorIII}{}}{ \\ }{}	
+	Major advisor} \\ \\ \\ \ifthenelse{\equal{\@coadvisorIII}{}}{ \\ }{}
 	\ifthenelse{\equal{\@coadvisorII}{}}{ \\ }{}
 	\>\@sbx{\@coadvisortitle \@coadvisor, \\
         \@coadvisorletters~(\@coadvisorsubject) \\
@@ -435,7 +435,7 @@
 	\ifthenelse{\equal{\@coadvisorIII}{}}{}{%
 		\>\@sbx{\@coadvisorIIItitle \@coadvisorIII, \\
                 \@coadvisorIIIletters~(\@coadvisorIIIsubject) \\
-		Co-advisor} \\ \\ \\ 
+		Co-advisor} \\ \\ \\
 	}
 	\@sbx{\@graduatestudiesdean\\
           \ifthenelse{\equal{\@GSDstatus}{}}{}{\@GSDstatus\ } Dean\\
@@ -443,7 +443,7 @@
 	\>\@sbx{\@programchair, \\\@programchairqual \\Program Director \\
 	  \@fulldegree\ Programme \\in \@subject \\ Faculty of \@faculty \\Mahidol University}
 	\end{tabbing}
-  	\end{center}	
+  	\end{center}
 	\newpage  % THESIS EXAM COMMITTEE
 	\thispagestyle{empty}
 	\begin{center}
@@ -478,7 +478,7 @@
 	\end{tabbing}
 \fi
   	\end{center}
-\fi	
+\fi
 }
 
 \newcommand{\acknowledgements}[1]{\if@draftmode\else
@@ -486,7 +486,7 @@
 	\thispagestyle{myheadings}
   	\markright{\footnotesize\hfil\thepage}
 	\addcontentsline{toc}{chapter}{ACKNOWLEDGEMENTS}
-	%\linespacing{1.3} 
+	%\linespacing{1.3}
         #1\mbox{}\newline\newline\mbox{}\hfill\@candidate
 \fi
 }
@@ -516,39 +516,41 @@
 	    \noindent\sloppy
         \@TITLE \\ \vspace{-1mm} \\%
   	\MakeUppercase\@candidate~~\@candidatenumber \\ \vspace{-1mm} \\%
-	\@degree\ (\MakeUppercase\@subject) 
+	\@degree\ (\MakeUppercase\@subject)
 	\ifthenelse{\equal{\@degree}{M.Sc.}}{
 	\ifthenelse{\equal{\@major}{}}
 	{}{MAJOR IN \MakeUppercase\@major}}{} \\ \vspace{-1em}%
-%        : \= MAJOR : 
+%        : \= MAJOR :
 %	\ifthenelse{\equal{\@major}{}}
 %	{\MakeUppercase\@subject\ }{\MakeUppercase\@major\ };
 %	\ifthenelse{\boolean{@longsubject}}{ \\ \> }{}
         %\sloppy
         \begin{flushleft}
-        THESIS ADVISORY COMMITTEE: 
+        THESIS ADVISORY COMMITTEE:
 	\MakeUppercase\@majoradvisor, \@majoradvisorletters
-        %(\MakeUppercase\@majoradvisorsubject) 
-	\ifthenelse{\equal{\@coadvisor}{}}{ }{, 
+        %(\MakeUppercase\@majoradvisorsubject)
+	\ifthenelse{\equal{\@coadvisor}{}}{ }{,
 	\MakeUppercase\@coadvisor, \@coadvisorletters
         }%(\MakeUppercase\@coadvisorsubject)} \\ %
 	\ifthenelse{\equal{\@coadvisorII}{}}{ }{,
 	\MakeUppercase\@coadvisorII, \@coadvisorIIletters\
-        } \\ %(\MakeUppercase\@coadvisorIIsubject)} \\ 
-       \end{flushleft}   
-  \vspace{-3ex}													% Reduce too much line spacing before ABSTRACT 
+        } \\ %(\MakeUppercase\@coadvisorIIsubject)} \\
+       \end{flushleft}
+  \vspace{-3ex}													% Reduce too much line spacing before ABSTRACT
 	\begin{center}ABSTRACT\end{center}
 	\vspace{-0.8em}
 %	\@beginparpenalty\@lowpenalty
 %        \@endparpenalty\@M
 	\par #1
+        \newpage
+        \@abstractbox
 	\begin{center}IMPLICATION OF THE THESIS\end{center}
 	\par #2
 	\vspace{-0.8em}
-	
+
 	\vspace{0.5em}
         \begin{tabbing}
-	KEY WORDS~: \= \MakeTextUppercase\@keywords \\ 
+	KEY WORDS~: \= \MakeTextUppercase\@keywords \\
 	\ifthenelse{\equal{\@keywordsII}{}}{}{
 	 \> \MakeTextUppercase\@keywordsII\\ }
 	\ifthenelse{\equal{\@keywordsIII}{}}{}{
@@ -650,7 +652,7 @@
 		}% APPENDIX A ....
 	}
 	\else
-	\addcontentsline{toc}{chapter}{#1}% 
+	\addcontentsline{toc}{chapter}{#1}%
 	\fi
 	\chaptermark{\texorpdfstring{#1}{Title for PDF bookmarks}}%
                     %\addtocontents{lof}{\protect\addvspace{10\p@}}%
@@ -661,8 +663,8 @@
                       \@makechapterhead{#2}%
                       \@afterheading
                     \fi
-                }            
-                
+                }
+
 \def\@makechapterhead#1{
 	\ifthenelse{\equal{\thechapter }{1}}{\renewcommand{\@althead}{}
 		\pagestyle{headings}
@@ -676,7 +678,7 @@
         \large\bfseries
         \linespacing{1.6}  % Set 1.5 space but don't know why using 1.6
 %        \MakeTextUppercase\@chapapp\space \@Roman\thechapter \\   % Chapter number, ekasit
-        \MakeTextUppercase\@chapapp\space \ifthenelse{\equal{\@appname}{}}{\@Roman}{}\thechapter \\   % Chapter number, ekasit        
+        \MakeTextUppercase\@chapapp\space \ifthenelse{\equal{\@appname}{}}{\@Roman}{}\thechapter \\   % Chapter number, ekasit
 	      \MakeTextUppercase{#1}\par\nobreak    % chapter title, ekasit
 	\end{center}
 	%\vskip 20\p@
@@ -701,7 +703,7 @@
 	\large \bfseries\MakeTextUppercase{#1}\par\nobreak
 	\end{center}
 %	\vskip 20\p@ % originally 40
-	\vskip 1.3cm     % add up space to get about 2 cm after chapter title, ekasit	
+	\vskip 1.3cm     % add up space to get about 2 cm after chapter title, ekasit
 }}
 
 \renewcommand\section{%
@@ -733,17 +735,17 @@
 	\topskip\@topskipsave
 	\let\@oddfoot\@empty
 	\def\@oddhead{\footnotesize\ifthenelse{\equal{\@althead}{}}{%
-	\ifodd\value{page}{\@facgradstud}\else\@candidate \fi 
-	\hfil 
+	\ifodd\value{page}{\@facgradstud}\else\@candidate \fi
+	\hfil
         \ifthenelse{\equal{\@appname}{}}{%
      	\ifodd\value{page} \@degree\ (\@subject)\ \else \rightmark\
-	    \fi}{\@appname} / \thepage}	
+	    \fi}{\@appname} / \thepage}
 	{\@althead\thepage}}
 	\let\@mkboth\markboth
 	\def\chaptermark##1{%
 	\markright { ##1}}
 }
-\def\ps@myheadings{ % used by abstractbox 
+\def\ps@myheadings{ % used by abstractbox
 	\topskip\@topskipsave
 	\let\@oddfoot\@empty\let\@evenfoot\@empty
 	\def\@evenhead{\thepage\hfil\slshape\leftmark}
@@ -754,7 +756,7 @@
 }
 
 %
-% Special continued titles for table of contents, list of figures, and list of tables 
+% Special continued titles for table of contents, list of figures, and list of tables
 %
 \def\ps@continued{%
     \let\@mkboth\@gobbletwo
@@ -763,7 +765,7 @@
 %    \def\@oddhead{\raisebox{-0.55in}{\large \bfseries \@althead}%
 %                  \footnotesize\hfil\thepage}
     \def\@oddhead{\parbox[t]{\textwidth}{\raisebox{-13.5mm}{\large \bfseries \@althead}%
-                        \footnotesize\hfill\thepage \\ 
+                        \footnotesize\hfill\thepage \\
                         \normalsize \bfseries \mbox{ } \hfill  \raisebox{-24mm}{Page}}}
     \let\@evenhead\@oddhead
     \def\@evenfoot{}
@@ -774,7 +776,7 @@
     \@topskipsave\topskip
     \topskip 35mm
     \def\@oddhead{\parbox[t]{\textwidth}{\raisebox{-13.5mm}{\large \bfseries \@althead}%
-                        \footnotesize\hfill\thepage \\ 
+                        \footnotesize\hfill\thepage \\
                         \normalsize \bfseries \raisebox{-24mm}{Figure} \hfill  \raisebox{-24mm}{Page}}}
     \let\@evenhead\@oddhead
     \def\@evenfoot{}
@@ -785,7 +787,7 @@
     \@topskipsave\topskip
     \topskip 35mm
     \def\@oddhead{\parbox[t]{\textwidth}{\raisebox{-13.5mm}{\large \bfseries \@althead}%
-                        \footnotesize\hfill\thepage \\ 
+                        \footnotesize\hfill\thepage \\
                         \normalsize \bfseries \raisebox{-24mm}{Table} \hfill  \raisebox{-24mm}{Page}}}
     \let\@evenhead\@oddhead
     \def\@evenfoot{}
@@ -865,7 +867,7 @@
   \if@draftmode\else\newpage\mbox{}\vskip 9cm
   \renewcommand{\@althead}{\@facgradstud\hfil\@degree\ (\@subject)\ / }
   \renewcommand{\@appname}{Appendices}
-  \addcontentsline{toc}{chapter}{APPENDICES}   
+  \addcontentsline{toc}{chapter}{APPENDICES}
   \begin{center}{\large\bf APPENDICES}\end{center}
   \par\fi
   \setcounter{chapter}{0}%
@@ -877,7 +879,7 @@
   \if@draftmode\else\newpage\mbox{}\vskip 9cm
   \renewcommand{\@althead}{\@facgradstud\hfil\@degree\ (\@subject)\ / }
   \renewcommand{\@appname}{Appendix}
-  \addcontentsline{toc}{chapter}{APPENDIX}   
+  \addcontentsline{toc}{chapter}{APPENDIX}
   \begin{center}{\large\bf APPENDIX}\end{center}
   \par\fi
   \setcounter{chapter}{0}%
@@ -940,7 +942,7 @@
 	{\bf PLACE OF BIRTH} \>\@placeofbirth \\
 	{\bf INSTITUTIONS ATTENDED} \>\@firstdegreeinstitution,
 	\@firstdegreeyears \\
-	\>\hspace{1cm}\=\@firstdegree\ 
+	\>\hspace{1cm}\=\@firstdegree\
 % the extra `(' seems to be necessary -- some bug in LaTeX???
         \ifthenelse{\boolean{@longfirstdegree}}{ \\ \>\> (}%
 	(\@firstdegreemajor) \\
@@ -951,7 +953,7 @@
 	\ifthenelse{\equal{\@preinstitutionIILnII}{}}{}{%
 	\>\>\@preinstitutionIILnII \\ }}%
 	\>Mahidol University, \@years \\
-	\>\>\@fulldegree\ (\@subject) \\ 
+	\>\>\@fulldegree\ (\@subject) \\
 	\ifthenelse{\equal{\@postinstitution}{}}{}{\>\@postinstitution \\
 	\ifthenelse{\equal{\@postinstitutionLnII}{}}{}{%
 	\>\>\@postinstitutionLnII \\ }}%
@@ -960,28 +962,28 @@
 	\>\>\@postinstitutionIILnII \\ }}%
 	\ifthenelse{\equal{\@scholarship}{}}{}{%
 	        \ifthenelse{\equal{\@scholarshipII}{}}{\bf{SCHOLARSHIP}}%
-		{\bf SCHOLARSHIPS}%   
-		\>\@scholarship \\ \>\>\@scholarshipLnII \\ 
+		{\bf SCHOLARSHIPS}%
+		\>\@scholarship \\ \>\>\@scholarshipLnII \\
 	\ifthenelse{\equal{\@scholarshipLnIII}{}}{}%
 	{\>\>\@scholarshipLnIII \\ }}%
 	\ifthenelse{\equal{\@scholarshipII}{}}{}{%
-		\>\@scholarshipII \\ \>\>\@scholarshipIILnII \\ 
+		\>\@scholarshipII \\ \>\>\@scholarshipIILnII \\
 	\ifthenelse{\equal{\@scholarshipIILnIII}{}}{}%
 	{\>\>\@scholarshipIILnIII \\ }}%
 	\ifthenelse{\equal{\@scholarshipIII}{}}{}{%
-		\>\@scholarshipIII \\ \>\>\@scholarshipIIILnII \\ 
+		\>\@scholarshipIII \\ \>\>\@scholarshipIIILnII \\
 	\ifthenelse{\equal{\@scholarshipIIILnIII}{}}{}%
 	{\>\>\@scholarshipIIILnIII \\ }}%
 	\ifthenelse{\equal{\@scholarshipIV}{}}{}{%
-		\>\@scholarshipIV \\ \>\>\@scholarshipIVLnII \\ 
+		\>\@scholarshipIV \\ \>\>\@scholarshipIVLnII \\
 	\ifthenelse{\equal{\@scholarshipIVLnIII}{}}{}%
 	{\>\>\@scholarshipIVLnIII \\ }}%
 	\ifthenelse{\equal{\@position}{}}{}{{\bf POSITION} \>\@position \\ }%
-	\ifthenelse{\equal{\@workplace}{}}{}{\>\@workplace \\ 
+	\ifthenelse{\equal{\@workplace}{}}{}{\>\@workplace \\
 	\ifthenelse{\equal{\@workplaceLnII}{}}{}%
 	{\>\@workplaceLnII \\ }}%
 	\ifthenelse{\equal{\@homeaddress}{}}{}{{\bf HOME ADDRESS}%
-		\>\@homeaddress \\ \>\@homeaddressLnII \\ 
+		\>\@homeaddress \\ \>\@homeaddressLnII \\
 	\ifthenelse{\equal{\@homeaddressLnIII}{}}{}%
 	{\>\@homeaddressLnIII \\ }}%
 	\ifthenelse{\equal{\@email}{}}{}{{\bf E-MAIL} \>\@email \\ }%
