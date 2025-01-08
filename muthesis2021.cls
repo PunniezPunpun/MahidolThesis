@@ -536,7 +536,8 @@
 	\MakeUppercase\@coadvisorII, \@coadvisorIIletters\
         } \\ %(\MakeUppercase\@coadvisorIIsubject)} \\
        \end{flushleft}
-  \vspace{-3ex}													% Reduce too much line spacing before ABSTRACT
+%   \vspace{-3ex}													% Reduce too much line spacing before ABSTRACT
+	\vspace{-1ex}
 	\begin{center}ABSTRACT\end{center}
 	\vspace{-0.8em}
 %	\@beginparpenalty\@lowpenalty
@@ -546,9 +547,10 @@
         \@abstractbox
 	\begin{center}IMPLICATION OF THE THESIS\end{center}
 	\par #2
-	\vspace{-0.8em}
+	% \vspace{-0.8em}
 
-	\vspace{0.5em}
+	% \vspace{0.5em}
+	\vspace{1em}
         \begin{tabbing}
 	KEY WORDS~: \= \MakeTextUppercase\@keywords \\
 	\ifthenelse{\equal{\@keywordsII}{}}{}{
@@ -635,6 +637,10 @@
   \fi}
 
 % \@chapter ตัวปัญหาที่ทำให้ใช้ hyperref package ไม่ได้
+
+% reformatting section/subsection entries in toc
+\renewcommand*\l@section{\@dottedtocline{1}{2cm}{2em}}
+\renewcommand*\l@subsection{\@dottedtocline{1}{4cm}{2.5em}}
 
 \def\@chapter[#1]#2{%
 	\ifnum \c@secnumdepth >\m@ne
@@ -887,6 +893,8 @@
   \gdef\@chapapp{\appendixname}%
   \gdef\thechapter{\@Alph\c@chapter}}
 
+\renewcommand{\@biblabel}[1]{#1}
+
 \renewenvironment{thebibliography}[1]{
 	\chapter*{\bibname}
 	\addcontentsline{toc}{chapter}{\MakeUppercase{\bibname}}
@@ -942,7 +950,8 @@
 	{\bf PLACE OF BIRTH} \>\@placeofbirth \\
 	{\bf INSTITUTIONS ATTENDED} \>\@firstdegreeinstitution,
 	\@firstdegreeyears \\
-	\>\hspace{1cm}\=\@firstdegree\
+	% \>\hspace{1cm}\=\@firstdegree\
+	\>\=\@firstdegree\
 % the extra `(' seems to be necessary -- some bug in LaTeX???
         \ifthenelse{\boolean{@longfirstdegree}}{ \\ \>\> (}%
 	(\@firstdegreemajor) \\
